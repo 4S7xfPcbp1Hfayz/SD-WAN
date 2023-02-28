@@ -32,7 +32,6 @@ config vpn ipsec phase1-interface
         set auto-discovery-sender enable
         set network-overlay enable
         set network-id 1
-        set tunnel-search nexthop
         set ipv4-start-ip 172.31.1.10
         set ipv4-end-ip 172.31.1.253
         set ipv4-netmask 255.255.255.0
@@ -52,7 +51,6 @@ config vpn ipsec phase1-interface
         set auto-discovery-sender enable
         set network-overlay enable
         set network-id 2
-        set tunnel-search nexthop
         set ipv4-start-ip 172.31.2.10
         set ipv4-end-ip 172.31.2.253
         set ipv4-netmask 255.255.255.0
