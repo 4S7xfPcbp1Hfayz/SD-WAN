@@ -341,18 +341,18 @@ end
 config system sdwan
     set status enable
     config zone
-        edit "Overlays"
+        edit "SD-WAN DC1"
         next
     end
     config members
         edit 0
             set interface "DC-ISP1"
-            set zone "Overlays"
+            set zone "SD-WAN DC1"
             set priority 10
         next
         edit 0
             set interface "DC-ISP2"
-            set zone "Overlays"
+            set zone "SD-WAN DC1"
             set priority 10
         next
     end
@@ -391,7 +391,7 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "Overlays"
+        set dstintf "SD-WAN DC1"
         set srcaddr "RFC_1918_ALL"
         set dstaddr "RFC_1918_ALL"
         set action accept
@@ -400,7 +400,7 @@ config firewall policy
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "Overlays"
+        set srcintf "SD-WAN DC1"
         set dstintf "any"
         set srcaddr "RFC_1918_ALL"
         set dstaddr "RFC_1918_ALL"
@@ -530,18 +530,18 @@ end
 config system sdwan
     set status enable
     config zone
-        edit "Overlays"
+        edit "SD-WAN DC1"
         next
     end
     config members
         edit 0
             set interface "DC-ISP1"
-            set zone "Overlays"
+            set zone "SD-WAN DC1"
             set priority 10
         next
         edit 0
             set interface "DC-ISP2"
-            set zone "Overlays"
+            set zone "SD-WAN DC1"
             set priority 10
         next
     end
@@ -580,7 +580,7 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "Overlays"
+        set dstintf "SD-WAN DC1"
         set srcaddr "RFC_1918_ALL"
         set dstaddr "RFC_1918_ALL"
         set action accept
@@ -589,7 +589,7 @@ config firewall policy
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "Overlays"
+        set srcintf "SD-WAN DC1"
         set dstintf "any"
         set srcaddr "RFC_1918_ALL"
         set dstaddr "RFC_1918_ALL"
