@@ -9,6 +9,7 @@
 | FW-SPOKE-02 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.22.254             |
 
 BGP AS: 6500
+
 Address Range for VPNs: 172.31.0.0/17
 
 ### FW-HUB-01
