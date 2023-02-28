@@ -371,7 +371,7 @@ config system sdwan
         next
     end
     config health-check
-        edit "Hub_HC"
+        edit "SLA-DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -387,13 +387,13 @@ config system sdwan
     end
     config service
         edit 0
-            set name "Branch_Traffic"
+            set name "DC1-Traffic"
             set mode sla
             set dst "RFC_1918_ALL"
             set src "RFC_1918_ALL"
             set hold-down-time 20
             config sla
-                edit "Hub_HC"
+                edit "SLA-DC1"
                     set id 1
                 next
             end
@@ -574,7 +574,7 @@ config system sdwan
         next
     end
     config health-check
-        edit "Hub_HC"
+        edit "SLA-DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -590,13 +590,13 @@ config system sdwan
     end
     config service
         edit 0
-            set name "Branch_Traffic"
+            set name "DC1-Traffic"
             set mode sla
             set dst "RFC_1918_ALL"
             set src "RFC_1918_ALL"
             set hold-down-time 20
             config sla
-                edit "Hub_HC"
+                edit "SLA-DC1"
                     set id 1
                 next
             end
