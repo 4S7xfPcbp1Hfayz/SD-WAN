@@ -38,7 +38,7 @@ VPN establishment:
 diagnose vpn ike gateway list
 ```
 
-### FW-SPOKE-01
+### FW-SPOKE-XX
 SD-WAN validation:
 ```
 diagnose sys virtual-wan-link member
