@@ -229,6 +229,47 @@ end
 
 ```
 config vpn ipsec phase1-interface
+    edit "DC-ISP1"
+        set interface "wan1"
+        set ike-version 2
+        set keylife 28800
+        set peertype any
+        set net-device enable
+        set mode-cfg enable
+        set proposal aes256-sha256 aes256gcm-prfsha384
+        set add-route disable
+        set dpd on-idle
+        set idle-timeout enable
+        set idle-timeoutinterval 5
+        set auto-discovery-receiver enable
+        set network-overlay enable
+        set network-id 1
+        set remote-gw 172.22.1.11
+        set psksecret fortinet
+        set dpd-retrycount 2
+        set dpd-retryinterval 10
+    next                    
+    edit "DC-ISP2"
+        set interface "port3"
+        set ike-version 2
+        set keylife 28800
+        set peertype any
+        set net-device enable
+        set mode-cfg enable
+        set proposal aes256-sha256 aes256gcm-prfsha384
+        set add-route disable
+        set dpd on-idle
+        set idle-timeout enable
+        set idle-timeoutinterval 5
+        set auto-discovery-receiver enable
+        set network-overlay enable
+        set network-id 2
+        set remote-gw 172.22.1.11
+        set psksecret fortinet
+        set dpd-retrycount 2
+        set dpd-retryinterval 10
+    next                    
+end
 ```
 
 ### FW-SPOKE-02
