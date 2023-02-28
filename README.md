@@ -26,8 +26,11 @@ config vpn ipsec phase1-interface
 config vpn ipsec phase1-interface
 ```
 
-### Validation
+## Validation
 
+### FW-HUB-01
 ```
-config vpn ipsec phase1-interface
+get router info routing-table all
+diagnose vpn ike gateway list
+
 ```
