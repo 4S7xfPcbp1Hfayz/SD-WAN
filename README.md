@@ -58,7 +58,6 @@ config vpn ipsec phase1-interface
         set dpd-retryinterval 60
     next
 end
-
 config vpn ipsec phase2-interface
     edit "DC-ISP1_p2"
         set phase1name "DC-ISP1"
@@ -73,7 +72,6 @@ config vpn ipsec phase2-interface
         set keylifeseconds 1800
     next
 end
-
 config system interface
     edit "VPNLoop"
         set vdom "root"
@@ -98,7 +96,6 @@ config system interface
         set interface "wan1"
     next
 end
-
 config router bgp
     set as 65000
     set ibgp-multipath enable
@@ -149,7 +146,6 @@ config router bgp
         next
     end
 end
-
 config firewall address
     edit "RFC_1918_10"
         set subnet 10.0.0.0 255.0.0.0
@@ -179,7 +175,6 @@ config router policy
         set output-device "DC-ISP2"
     next
 end
-## Firewall policy is require for VPN to stand up - please lockdown these policies as appropriate
 config firewall policy
     edit 0
         set name "ADVPN Spoke to Spoke"
