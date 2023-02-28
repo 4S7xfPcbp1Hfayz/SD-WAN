@@ -270,6 +270,150 @@ config vpn ipsec phase1-interface
         set dpd-retryinterval 10
     next                    
 end
+config vpn ipsec phase2-interface
+    edit "DC-ISP1_p2"
+        set phase1name "DC-ISP1"
+        set proposal aes256-sha256 aes256gcm
+        set keepalive enable
+        set keylifeseconds 1800
+    next
+    edit "DC-ISP2_p2"
+        set phase1name "DC-ISP2"
+        set proposal aes256-sha256 aes256gcm
+        set keepalive enable
+        set keylifeseconds 1800
+    next
+end
+config system interface
+    edit "DC-ISP1"
+        set allowaccess ping
+    next                    
+    edit "DC-ISP2"
+        set allowaccess ping
+    next                    
+end
+config router bgp
+    set as 65000
+    set ibgp-multipath enable
+    set additional-path enable
+    set additional-path-select 4
+    set keepalive-timer 5
+    set holdtime-timer 15
+    config neighbor
+        edit "172.31.1.254"
+            set advertisement-interval 1
+            set link-down-failover enable
+            set soft-reconfiguration enable
+            set interface "DC-ISP1"
+            set remote-as 65000
+            set connect-timer 1
+            set additional-path receive
+        next
+        edit "172.31.2.254"
+            set advertisement-interval 1
+            set link-down-failover enable
+            set soft-reconfiguration enable
+            set interface "DC-ISP2"
+            set remote-as 65000
+            set connect-timer 1
+            set additional-path receive
+        next
+    end
+    config network
+        edit 0
+            set prefix 192.168.21.0 255.255.255.0
+        next
+    end
+end
+config firewall address
+    edit "RFC_1918_10"
+        set subnet 10.0.0.0 255.0.0.0
+    next
+    edit "RFC_1918_172_16"
+        set subnet 172.16.0.0 255.240.0.0
+    next
+    edit "RFC_1918_192_168"
+        set subnet 192.168.0.0 255.255.0.0
+    next
+end
+config firewall addrgrp
+    edit "RFC_1918_ALL"
+        set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    next
+end
+config system sdwan
+    set status enable
+    config zone
+        edit "Overlays"
+        next
+    end
+    config members
+        edit 0
+            set interface "DC-ISP1"
+            set zone "Overlays"
+            set priority 10
+        next
+        edit 0
+            set interface "DC-ISP2"
+            set zone "Overlays"
+            set priority 10
+        next
+    end
+    config health-check
+        edit "Hub_HC"
+            set server "172.31.127.254"
+            set sla-fail-log-period 10
+            set sla-pass-log-period 10
+            set members 1 2
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
+        next
+    end
+    config service
+        edit 0
+            set name "Branch_Traffic"
+            set mode sla
+            set dst "RFC_1918_ALL"
+            set src "RFC_1918_ALL"
+            set hold-down-time 20
+            config sla
+                edit "Hub_HC"
+                    set id 1
+                next
+            end
+            set priority-members 1 2
+        next
+    end
+end
+config firewall policy
+    edit 0
+        set name "ADVPN Out"
+        set srcintf "any"
+        set dstintf "Overlays"
+        set srcaddr "RFC_1918_ALL"
+        set dstaddr "RFC_1918_ALL"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+    next
+    edit 0
+        set name "ADVPN In"
+        set srcintf "Overlays"
+        set dstintf "any"
+        set srcaddr "RFC_1918_ALL"
+        set dstaddr "RFC_1918_ALL"
+        set action accept
+        set schedule "always"
+        set service "ALL"
+        set logtraffic disable
+    next
+end
 ```
 
 ### FW-SPOKE-02
