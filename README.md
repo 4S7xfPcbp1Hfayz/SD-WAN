@@ -359,6 +359,16 @@ config system sdwan
             set zone "SD-WAN DC1"
             set priority 10
         next
+        edit 0
+            set interface "wan1"
+            set zone "SD-WAN INTERNET"
+            set priority 10
+        next
+        edit 0
+            set interface "wan2"
+            set zone "SD-WAN INTERNET"
+            set priority 10
+        next
     end
     config health-check
         edit "Hub_HC"
@@ -550,6 +560,16 @@ config system sdwan
         edit 0
             set interface "DC-ISP2"
             set zone "SD-WAN DC1"
+            set priority 10
+        next
+        edit 0
+            set interface "wan1"
+            set zone "SD-WAN INTERNET"
+            set priority 10
+        next
+        edit 0
+            set interface "wan2"
+            set zone "SD-WAN INTERNET"
             set priority 10
         next
     end
