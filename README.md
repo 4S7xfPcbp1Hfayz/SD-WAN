@@ -37,3 +37,21 @@ VPN establishment:
 ```
 diagnose vpn ike gateway list
 ```
+
+### FW-SPOKE-01
+SD-WAN validation:
+```
+diagnose sys virtual-wan-link member
+diagnose sys virtual-wan-link service
+diagnose sys virtual-wan-link health-check
+```
+Routing table:
+```
+get router info routing-table all
+get router info route-map-address
+get router info bgp route-map <route-map-name>
+```
+VPN establishment:
+```
+diagnose vpn ike gateway list
+```
