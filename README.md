@@ -187,7 +187,6 @@ config firewall policy
         set service "ALL"
         set anti-replay disable
         set tcp-session-without-syn all        
-        set logtraffic disable
     next
     edit 0
         set name "ADVPN Out"
@@ -198,7 +197,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
     edit 0
         set name "ADVPN In"
@@ -209,7 +207,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
     edit 0
         set name "ADVPN Hub HC"
@@ -220,7 +217,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
         set comments "Allow health checks to the hub FortiGate"
     next        
 end
@@ -401,7 +397,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
     edit 0
         set name "ADVPN In"
@@ -412,7 +407,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
 end
 ```
@@ -592,7 +586,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
     edit 0
         set name "ADVPN In"
@@ -603,7 +596,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set logtraffic disable
     next
 end
 ```
