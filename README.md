@@ -221,6 +221,7 @@ config firewall policy
         set schedule "always"
         set service "ALL"
         set logtraffic disable
+        set comments "Allow health checks to the hub FortiGate"
     next        
 end
 ```
