@@ -8,3 +8,9 @@
 | FW-SPOKE-01 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.21.254             |
 | FW-SPOKE-02 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.22.254             |
 | FW-SPOKE-03 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.23.254             |
+
+## CONFIG
+
+```
+config vpn ipsec phase1-interface
+```
