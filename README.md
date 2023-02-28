@@ -365,7 +365,7 @@ config system sdwan
             set priority 10
         next
         edit 0
-            set interface "wan2"
+            set interface "port3"
             set zone "SD-WAN INTERNET"
             set priority 10
         next
@@ -568,7 +568,7 @@ config system sdwan
             set priority 10
         next
         edit 0
-            set interface "wan2"
+            set interface "port3"
             set zone "SD-WAN INTERNET"
             set priority 10
         next
