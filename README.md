@@ -344,10 +344,6 @@ config system sdwan
         edit "SD-WAN DC1"
         next
     end
-        config zone
-        edit "SD-WAN DC1"
-        next
-    end
     config zone
         edit "SD-WAN INTERNET"
         next
@@ -538,10 +534,6 @@ end
 config system sdwan
     set status enable
     config zone
-        edit "SD-WAN DC1"
-        next
-    end
-        config zone
         edit "SD-WAN DC1"
         next
     end
