@@ -384,6 +384,18 @@ config system sdwan
                 next
             end
         next
+        edit "Default_AWS"
+            set members 3 4
+        next
+        edit "Default_Gmail"
+            set members 3 4
+        next
+        edit "Default_Google Search"
+            set members 3 4
+        next
+        edit "Default_Office_365"
+            set members 3 4
+        next
     end
     config service
         edit 0
@@ -586,6 +598,18 @@ config system sdwan
                     set packetloss-threshold 2
                 next
             end
+        next
+        edit "Default_AWS"
+            set members 3 4
+        next
+        edit "Default_Gmail"
+            set members 3 4
+        next
+        edit "Default_Google Search"
+            set members 3 4
+        next
+        edit "Default_Office_365"
+            set members 3 4
         next
     end
     config service
