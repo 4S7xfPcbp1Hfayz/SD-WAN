@@ -12,7 +12,8 @@ BGP AS: 65000
 
 Address Range for VPNs: 172.31.0.0/17
 
-/!\ TODO SD-WAN Rules for internet
+/!\ TODO:
+- SD-WAN Rules for internet
 
 ### FW-HUB-01
 
