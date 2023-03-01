@@ -14,6 +14,7 @@ Address Range for VPNs: 172.31.0.0/17
 
 /!\ TODO:
 - SD-WAN Rules for internet
+- Rule for internet with SD-WAN INTERNET zone
 
 ### FW-HUB-01
 
@@ -387,17 +388,31 @@ config system sdwan
                 next
             end
         next
-        edit "Default_AWS"
+        edit "Google"
+            set server "8.8.8.8"
+            set sla-fail-log-period 10
+            set sla-pass-log-period 10
             set members 3 4
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
         next
-        edit "Default_Gmail"
+        edit "Cloudflare"
+            set server "1.1.1.1"
+            set sla-fail-log-period 10
+            set sla-pass-log-period 10
             set members 3 4
-        next
-        edit "Default_Google Search"
-            set members 3 4
-        next
-        edit "Default_Office_365"
-            set members 3 4
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
         next
     end
     config service
@@ -602,17 +617,31 @@ config system sdwan
                 next
             end
         next
-        edit "Default_AWS"
+        edit "Google"
+            set server "8.8.8.8"
+            set sla-fail-log-period 10
+            set sla-pass-log-period 10
             set members 3 4
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
         next
-        edit "Default_Gmail"
+        edit "Cloudflare"
+            set server "1.1.1.1"
+            set sla-fail-log-period 10
+            set sla-pass-log-period 10
             set members 3 4
-        next
-        edit "Default_Google Search"
-            set members 3 4
-        next
-        edit "Default_Office_365"
-            set members 3 4
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
         next
     end
     config service
