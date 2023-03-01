@@ -8,9 +8,9 @@
 | FW-SPOKE-01 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.21.254             |
 | FW-SPOKE-02 |  7.2.3  |     DHCP \| wan1    |    DHCP \| port3    | 192.168.22.254             |
 
-| BGP AS        | 65000 |
-|-------------|:-------:|
-| Address Range for VPNs   |  172.31.0.0/17 |
+| BGP AS        | 65000 | Comments |
+|-------------|:-------:|:-------:|
+| Address Range for VPNs   |  172.31.0.0/17 | /17 for 250 Spokes |
 
 /!\ TODO:
 - SD-WAN Rules for internet
