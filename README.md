@@ -375,7 +375,8 @@ config system sdwan
         next
     end
     config health-check
-        edit "SLA-DC1"
+        edit 0
+            set name "SLA-DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -604,7 +605,8 @@ config system sdwan
         next
     end
     config health-check
-        edit "SLA-DC1"
+        edit 0
+            set name "SLA-DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
