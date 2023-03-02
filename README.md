@@ -619,7 +619,8 @@ config system sdwan
                 next
             end
         next
-        edit "Google"
+        edit 0
+            set name "Google"
             set server "8.8.8.8"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -632,7 +633,8 @@ config system sdwan
                 next
             end
         next
-        edit "Cloudflare"
+        edit 0
+            set name "Cloudflare"
             set server "1.1.1.1"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
