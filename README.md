@@ -431,6 +431,21 @@ config system sdwan
             end
             set priority-members 1 2
         next
+        edit 0
+            set name "Internet-Traffic"
+            set mode sla
+            set dst "all"
+            set src "all"
+            config sla
+                edit "Cloudflare"
+                    set id 1
+                next
+                edit "Google"
+                    set id 1
+                next
+            end
+            set priority-members 3 4
+        next
     end
 end
 config firewall policy
