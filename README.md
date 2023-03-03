@@ -22,7 +22,7 @@ config system settings
     set tcp-session-without-syn enable
 end
 config vpn ipsec phase1-interface
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set type dynamic
         set interface "wan1"
         set local-gw 172.22.1.11
@@ -64,8 +64,8 @@ config vpn ipsec phase1-interface
     next
 end
 config vpn ipsec phase2-interface
-    edit "DC-ISP1_p2"
-        set phase1name "DC-ISP1"
+    edit "DC01-ISP1_p2"
+        set phase1name "DC01-ISP1"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -84,7 +84,7 @@ config system interface
         set allowaccess ping
         set ip 172.31.127.254 255.255.255.255
     next
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set vdom "root"
         set ip 172.31.1.254 255.255.255.255
         set allowaccess ping
@@ -107,14 +107,14 @@ config router bgp
     set additional-path enable
     set additional-path-select 4
     config neighbor-group
-        edit "DC-ISP1"
+        edit "DC01-ISP1"
             set advertisement-interval 1
             set link-down-failover enable
             set next-hop-self enable
             set soft-reconfiguration enable
-            set interface "DC-ISP1"
+            set interface "DC01-ISP1"
             set remote-as 65000
-            set update-source "DC-ISP1"
+            set update-source "DC01-ISP1"
             set additional-path send
             set adv-additional-path 4
             set route-reflector-client enable
@@ -135,7 +135,7 @@ config router bgp
     config neighbor-range
         edit 0
             set prefix 172.31.1.0 255.255.255.0
-            set neighbor-group "DC-ISP1"
+            set neighbor-group "DC01-ISP1"
         next
         edit 0
             set prefix 172.31.2.0 255.255.255.0
@@ -179,14 +179,14 @@ config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
-    edit "RFC_1918_ALL_CUSTOM"
+    edit "RFC_1918_DC01"
         set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config router policy
     edit 0
-        set input-device "DC-ISP1"
-        set output-device "DC-ISP1"
+        set input-device "DC01-ISP1"
+        set output-device "DC01-ISP1"
     next
     edit 0
         set input-device "DC-ISP2"
@@ -196,10 +196,10 @@ end
 config firewall policy
     edit 0
         set name "ADVPN Spoke to Spoke"
-        set srcintf "DC-ISP1" "DC-ISP2"
-        set dstintf "DC-ISP1" "DC-ISP2"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set srcintf "DC01-ISP1" "DC-ISP2"
+        set dstintf "DC01-ISP1" "DC-ISP2"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -209,26 +209,26 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "DC-ISP1" "DC-ISP2"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set dstintf "DC01-ISP1" "DC-ISP2"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "DC-ISP1" "DC-ISP2"
+        set srcintf "DC01-ISP1" "DC-ISP2"
         set dstintf "any"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
     next
     edit 0
         set name "ADVPN Hub HC"
-        set srcintf "DC-ISP1" "DC-ISP2"
+        set srcintf "DC01-ISP1" "DC-ISP2"
         set dstintf "VPNLoop"
         set srcaddr "all"
         set dstaddr "Hub-HC"
@@ -244,7 +244,7 @@ end
 
 ```
 config vpn ipsec phase1-interface
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set interface "wan1"
         set ike-version 2
         set keylife 28800
@@ -286,8 +286,8 @@ config vpn ipsec phase1-interface
     next                    
 end
 config vpn ipsec phase2-interface
-    edit "DC-ISP1_p2"
-        set phase1name "DC-ISP1"
+    edit "DC01-ISP1_p2"
+        set phase1name "DC01-ISP1"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -300,7 +300,7 @@ config vpn ipsec phase2-interface
     next
 end
 config system interface
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set allowaccess ping
     next                    
     edit "DC-ISP2"
@@ -319,7 +319,7 @@ config router bgp
             set advertisement-interval 1
             set link-down-failover enable
             set soft-reconfiguration enable
-            set interface "DC-ISP1"
+            set interface "DC01-ISP1"
             set remote-as 65000
             set connect-timer 1
             set additional-path receive
@@ -368,14 +368,14 @@ config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
-    edit "RFC_1918_ALL_CUSTOM"
+    edit "RFC_1918_DC01"
         set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config system sdwan
     set status enable
     config zone
-        edit "SD-WAN DC1"
+        edit "SD-WAN DC01"
         next
     end
     config zone
@@ -392,12 +392,12 @@ end
 config system sdwan
     config members
         edit 0
-            set interface "DC-ISP1"
-            set zone "SD-WAN DC1"
+            set interface "DC01-ISP1"
+            set zone "SD-WAN DC01"
         next
         edit 0
             set interface "DC-ISP2"
-            set zone "SD-WAN DC1"
+            set zone "SD-WAN DC01"
             set cost 10
             set priority 10
         next
@@ -413,7 +413,7 @@ config system sdwan
         next
     end
     config health-check
-        edit "SLA_DC1"
+        edit "SLA_DC01"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -455,13 +455,13 @@ config system sdwan
     end
     config service
         edit 0
-            set name "DC1-Traffic"
+            set name "DC01-Traffic"
             set mode sla
-            set dst "RFC_1918_ALL_CUSTOM"
-            set src "RFC_1918_ALL_CUSTOM"
+            set dst "RFC_1918_DC01"
+            set src "RFC_1918_DC01"
             set hold-down-time 20
             config sla
-                edit "SLA_DC1"
+                edit "SLA_DC01"
                     set id 1
                 next
             end
@@ -488,19 +488,19 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "SD-WAN DC1"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set dstintf "SD-WAN DC01"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "SD-WAN DC1"
+        set srcintf "SD-WAN DC01"
         set dstintf "any"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -523,7 +523,7 @@ end
 
 ```
 config vpn ipsec phase1-interface
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set interface "wan1"
         set ike-version 2
         set keylife 28800
@@ -565,8 +565,8 @@ config vpn ipsec phase1-interface
     next                    
 end
 config vpn ipsec phase2-interface
-    edit "DC-ISP1_p2"
-        set phase1name "DC-ISP1"
+    edit "DC01-ISP1_p2"
+        set phase1name "DC01-ISP1"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -579,7 +579,7 @@ config vpn ipsec phase2-interface
     next
 end
 config system interface
-    edit "DC-ISP1"
+    edit "DC01-ISP1"
         set allowaccess ping
     next                    
     edit "DC-ISP2"
@@ -598,7 +598,7 @@ config router bgp
             set advertisement-interval 1
             set link-down-failover enable
             set soft-reconfiguration enable
-            set interface "DC-ISP1"
+            set interface "DC01-ISP1"
             set remote-as 65000
             set connect-timer 1
             set additional-path receive
@@ -647,14 +647,14 @@ config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
-    edit "RFC_1918_ALL_CUSTOM"
+    edit "RFC_1918_DC01"
         set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config system sdwan
     set status enable
     config zone
-        edit "SD-WAN DC1"
+        edit "SD-WAN DC01"
         next
     end
     config zone
@@ -671,12 +671,12 @@ end
 config system sdwan
     config members
         edit 0
-            set interface "DC-ISP1"
-            set zone "SD-WAN DC1"
+            set interface "DC01-ISP1"
+            set zone "SD-WAN DC01"
         next
         edit 0
             set interface "DC-ISP2"
-            set zone "SD-WAN DC1"
+            set zone "SD-WAN DC01"
             set cost 10
             set priority 10
         next
@@ -692,7 +692,7 @@ config system sdwan
         next
     end
     config health-check
-        edit "SLA_DC1"
+        edit "SLA_DC01"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -734,13 +734,13 @@ config system sdwan
     end
     config service
         edit 0
-            set name "DC1-Traffic"
+            set name "DC01-Traffic"
             set mode sla
-            set dst "RFC_1918_ALL_CUSTOM"
-            set src "RFC_1918_ALL_CUSTOM"
+            set dst "RFC_1918_DC01"
+            set src "RFC_1918_DC01"
             set hold-down-time 20
             config sla
-                edit "SLA_DC1"
+                edit "SLA_DC01"
                     set id 1
                 next
             end
@@ -767,19 +767,19 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "SD-WAN DC1"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set dstintf "SD-WAN DC01"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "SD-WAN DC1"
+        set srcintf "SD-WAN DC01"
         set dstintf "any"
-        set srcaddr "RFC_1918_ALL_CUSTOM"
-        set dstaddr "RFC_1918_ALL_CUSTOM"
+        set srcaddr "RFC_1918_DC01"
+        set dstaddr "RFC_1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
