@@ -13,7 +13,6 @@
 | Address Range for VPNs   |  172.31.0.0/17 | /17 for 250 Spokes, /14 for 2000 Spokes |
 
 /!\ TODO:
-- Add Static Route 0.0.0.0/0 to SD-WAN-INTERNET
 - Rule for internet with SD-WAN INTERNET zone
 - IPSEC VPN setup local-gw
 
@@ -353,6 +352,14 @@ config system sdwan
         edit "SD-WAN INTERNET"
         next
     end
+end
+config router static
+    edit 1
+        set distance 1
+        set sdwan-zone "SD-WAN INTERNET"
+    next
+end
+config system sdwan
     config members
         edit 0
             set interface "DC-ISP1"
@@ -597,6 +604,14 @@ config system sdwan
         edit "SD-WAN INTERNET"
         next
     end
+end
+config router static
+    edit 1
+        set distance 1
+        set sdwan-zone "SD-WAN INTERNET"
+    next
+end
+config system sdwan
     config members
         edit 0
             set interface "DC-ISP1"
