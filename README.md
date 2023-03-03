@@ -26,6 +26,7 @@ config vpn ipsec phase1-interface
     edit "DC-ISP1"
         set type dynamic
         set interface "wan1"
+        set local-gw 172.22.1.11
         set ike-version 2
         set peertype any
         set net-device disable
@@ -45,6 +46,7 @@ config vpn ipsec phase1-interface
     edit "DC-ISP2"
         set type dynamic
         set interface "wan1"
+        set local-gw 172.22.1.11
         set ike-version 2
         set peertype any
         set net-device disable
