@@ -481,10 +481,10 @@ config system sdwan
             set dst "all"
             set src "all"
             config sla
-                edit "Cloudflare"
+                edit "SLA_Cloudflare"
                     set id 1
                 next
-                edit "Google"
+                edit "SLA_Google"
                     set id 1
                 next
             end
@@ -764,10 +764,10 @@ config system sdwan
             set dst "all"
             set src "all"
             config sla
-                edit "Cloudflare"
+                edit "SLA_Cloudflare"
                     set id 1
                 next
-                edit "Google"
+                edit "SLA_Google"
                     set id 1
                 next
             end
