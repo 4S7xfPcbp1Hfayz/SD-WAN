@@ -161,13 +161,26 @@ config firewall address
     edit "RFC_1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
-    edit "Hub-HC"
-        set subnet 172.31.127.254 255.255.255.255
-    next    
+    edit "SRV-37"
+        set color 9
+        set subnet 10.1.37.0 255.255.255.0
+    next
+        edit "SRV-30"
+        set color 21
+        set subnet 10.1.30.0 255.255.255.0
+    next
+        edit "SRV-AZURE"
+        set color 18
+        set subnet 10.0.0.0 255.255.0.0
+    
+    next
 end
 config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    next
+    edit "RFC_1918_ALL_CUSTOM"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config router policy
@@ -616,10 +629,26 @@ config firewall address
     edit "RFC_1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
+    edit "SRV-37"
+        set color 9
+        set subnet 10.1.37.0 255.255.255.0
+    next
+        edit "SRV-30"
+        set color 21
+        set subnet 10.1.30.0 255.255.255.0
+    next
+        edit "SRV-AZURE"
+        set color 18
+        set subnet 10.0.0.0 255.255.0.0
+    
+    next
 end
 config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    next
+    edit "RFC_1918_ALL_CUSTOM"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config system sdwan
