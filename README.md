@@ -768,8 +768,8 @@ config firewall policy
         set name "ADVPN Out"
         set srcintf "any"
         set dstintf "SD-WAN DC1"
-        set srcaddr "RFC_1918_ALL"
-        set dstaddr "RFC_1918_ALL"
+        set srcaddr "RFC_1918_ALL_CUSTOM"
+        set dstaddr "RFC_1918_ALL_CUSTOM"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -778,8 +778,8 @@ config firewall policy
         set name "ADVPN In"
         set srcintf "SD-WAN DC1"
         set dstintf "any"
-        set srcaddr "RFC_1918_ALL"
-        set dstaddr "RFC_1918_ALL"
+        set srcaddr "RFC_1918_ALL_CUSTOM"
+        set dstaddr "RFC_1918_ALL_CUSTOM"
         set action accept
         set schedule "always"
         set service "ALL"
