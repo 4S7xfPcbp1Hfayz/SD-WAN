@@ -13,8 +13,9 @@
 | Address Range for VPNs   |  172.31.0.0/17 | /17 for 250 Spokes, /14 for 2000 Spokes |
 
 /!\ TODO:
-- Add Static Route 0.0.0.0/0 to SD-WAN-INTERNET
+- SD-WAN Rules for internet
 - Rule for internet with SD-WAN INTERNET zone
+- Add Static Route
 - IPSEC VPN setup local-gw
 
 ### FW-HUB-01
@@ -673,6 +674,21 @@ config system sdwan
                 next
             end
             set priority-members 1 2
+        next
+        edit 0
+            set name "Internet-Traffic"
+            set mode sla
+            set dst "all"
+            set src "all"
+            config sla
+                edit "Cloudflare"
+                    set id 1
+                next
+                edit "Google"
+                    set id 1
+                next
+            end
+            set priority-members 3 4
         next
     end
 end
