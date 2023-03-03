@@ -746,10 +746,12 @@ diagnose vpn ike gateway list
 ### FW-SPOKE-XX
 SD-WAN validation:
 ```
+FortiOS 6.2.X
 diagnose sys virtual-wan-link member
 diagnose sys virtual-wan-link service
 diagnose sys virtual-wan-link health-check
 
+FortiOS 7.2.X
 diagnose sys sdwan member
 diagnose sys sdwan service
 diagnose sys sdwan health-check
