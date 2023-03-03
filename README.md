@@ -783,6 +783,9 @@ Routing table:
 ```
 get router info routing-table all
 get router info route-map-address
+
+get router info bgp summary
+get router info routing-table bgp
 get router info bgp route-map <route-map-name>
 ```
 VPN establishment:
