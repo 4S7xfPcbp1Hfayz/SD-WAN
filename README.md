@@ -14,7 +14,6 @@
 
 /!\ TODO:
 - Rule for internet with SD-WAN INTERNET zone
-- IPSEC VPN setup local-gw
 
 ### FW-HUB-01
 
