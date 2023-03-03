@@ -337,10 +337,21 @@ config firewall address
     edit "RFC_1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
+    edit "SRV-37"
+        set color 9
+        set subnet 10.1.37.0 255.255.255.0
+    next
+        edit "SRV-30"
+        set color 21
+        set subnet 10.1.30.0 255.255.255.0
+    next
 end
 config firewall addrgrp
     edit "RFC_1918_ALL"
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    next
+    edit "RFC_1918_ALL_CUSTOM"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
     next
 end
 config system sdwan
@@ -460,8 +471,8 @@ config firewall policy
         set name "ADVPN Out"
         set srcintf "any"
         set dstintf "SD-WAN DC1"
-        set srcaddr "RFC_1918_ALL"
-        set dstaddr "RFC_1918_ALL"
+        set srcaddr "RFC_1918_ALL_CUSTOM"
+        set dstaddr "RFC_1918_ALL_CUSTOM"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -470,8 +481,8 @@ config firewall policy
         set name "ADVPN In"
         set srcintf "SD-WAN DC1"
         set dstintf "any"
-        set srcaddr "RFC_1918_ALL"
-        set dstaddr "RFC_1918_ALL"
+        set srcaddr "RFC_1918_ALL_CUSTOM"
+        set dstaddr "RFC_1918_ALL_CUSTOM"
         set action accept
         set schedule "always"
         set service "ALL"
