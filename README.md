@@ -13,7 +13,7 @@
 | Address Range for VPNs   |  172.31.0.0/17 | /17 for 250 Spokes, /14 for 2000 Spokes |
 
 /!\ TODO:
-Add Static Route 0.0.0.0/0 to SD-WAN-INTERNET
+- Add Static Route 0.0.0.0/0 to SD-WAN-INTERNET
 - Rule for internet with SD-WAN INTERNET zone
 - IPSEC VPN setup local-gw
 
