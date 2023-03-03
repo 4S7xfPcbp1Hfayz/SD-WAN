@@ -394,22 +394,22 @@ config system sdwan
         edit 0
             set interface "DC-ISP1"
             set zone "SD-WAN DC1"
-            set priority 10
         next
         edit 0
             set interface "DC-ISP2"
             set zone "SD-WAN DC1"
+            set cost 10
             set priority 10
         next
         edit 0
             set interface "wan1"
             set zone "SD-WAN INTERNET"
+            set cost 10
             set priority 10
         next
         edit 0
             set interface "port3"
             set zone "SD-WAN INTERNET"
-            set priority 10
         next
     end
     config health-check
@@ -673,22 +673,22 @@ config system sdwan
         edit 0
             set interface "DC-ISP1"
             set zone "SD-WAN DC1"
-            set priority 10
         next
         edit 0
             set interface "DC-ISP2"
             set zone "SD-WAN DC1"
+            set cost 10
             set priority 10
         next
         edit 0
             set interface "wan1"
             set zone "SD-WAN INTERNET"
+            set cost 10
             set priority 10
         next
         edit 0
             set interface "port3"
             set zone "SD-WAN INTERNET"
-            set priority 10
         next
     end
     config health-check
