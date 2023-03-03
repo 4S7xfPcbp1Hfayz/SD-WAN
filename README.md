@@ -42,7 +42,7 @@ config vpn ipsec phase1-interface
         set psksecret fortinet
         set dpd-retryinterval 60
     next
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set type dynamic
         set interface "wan1"
         set local-gw 172.22.1.11
@@ -70,8 +70,8 @@ config vpn ipsec phase2-interface
         set keepalive enable
         set keylifeseconds 1800
     next
-    edit "DC-ISP2_p2"
-        set phase1name "DC-ISP2"
+    edit "DC01-ISP2_p2"
+        set phase1name "DC01-ISP2"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -92,7 +92,7 @@ config system interface
         set remote-ip 172.31.1.10 255.255.255.0
         set interface "wan1"
     next
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set vdom "root"
         set ip 172.31.2.254 255.255.255.255
         set allowaccess ping
@@ -119,14 +119,14 @@ config router bgp
             set adv-additional-path 4
             set route-reflector-client enable
         next
-        edit "DC-ISP2"
+        edit "DC01-ISP2"
             set advertisement-interval 1
             set link-down-failover enable
             set next-hop-self enable
             set soft-reconfiguration enable
-            set interface "DC-ISP2"
+            set interface "DC01-ISP2"
             set remote-as 65000
-            set update-source "DC-ISP2"
+            set update-source "DC01-ISP2"
             set additional-path send
             set adv-additional-path 4
             set route-reflector-client enable
@@ -139,7 +139,7 @@ config router bgp
         next
         edit 0
             set prefix 172.31.2.0 255.255.255.0
-            set neighbor-group "DC-ISP2"
+            set neighbor-group "DC01-ISP2"
         next
     end
     config network
@@ -189,15 +189,15 @@ config router policy
         set output-device "DC01-ISP1"
     next
     edit 0
-        set input-device "DC-ISP2"
-        set output-device "DC-ISP2"
+        set input-device "DC01-ISP2"
+        set output-device "DC01-ISP2"
     next
 end
 config firewall policy
     edit 0
         set name "ADVPN Spoke to Spoke"
-        set srcintf "DC01-ISP1" "DC-ISP2"
-        set dstintf "DC01-ISP1" "DC-ISP2"
+        set srcintf "DC01-ISP1" "DC01-ISP2"
+        set dstintf "DC01-ISP1" "DC01-ISP2"
         set srcaddr "RFC_1918_DC01"
         set dstaddr "RFC_1918_DC01"
         set action accept
@@ -209,7 +209,7 @@ config firewall policy
     edit 0
         set name "ADVPN Out"
         set srcintf "any"
-        set dstintf "DC01-ISP1" "DC-ISP2"
+        set dstintf "DC01-ISP1" "DC01-ISP2"
         set srcaddr "RFC_1918_DC01"
         set dstaddr "RFC_1918_DC01"
         set action accept
@@ -218,7 +218,7 @@ config firewall policy
     next
     edit 0
         set name "ADVPN In"
-        set srcintf "DC01-ISP1" "DC-ISP2"
+        set srcintf "DC01-ISP1" "DC01-ISP2"
         set dstintf "any"
         set srcaddr "RFC_1918_DC01"
         set dstaddr "RFC_1918_DC01"
@@ -228,7 +228,7 @@ config firewall policy
     next
     edit 0
         set name "ADVPN Hub HC"
-        set srcintf "DC01-ISP1" "DC-ISP2"
+        set srcintf "DC01-ISP1" "DC01-ISP2"
         set dstintf "VPNLoop"
         set srcaddr "all"
         set dstaddr "Hub-HC"
@@ -264,7 +264,7 @@ config vpn ipsec phase1-interface
         set dpd-retrycount 2
         set dpd-retryinterval 10
     next                    
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set interface "port3"
         set ike-version 2
         set keylife 28800
@@ -292,8 +292,8 @@ config vpn ipsec phase2-interface
         set keepalive enable
         set keylifeseconds 1800
     next
-    edit "DC-ISP2_p2"
-        set phase1name "DC-ISP2"
+    edit "DC01-ISP2_p2"
+        set phase1name "DC01-ISP2"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -303,7 +303,7 @@ config system interface
     edit "DC01-ISP1"
         set allowaccess ping
     next                    
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set allowaccess ping
     next                    
 end
@@ -328,7 +328,7 @@ config router bgp
             set advertisement-interval 1
             set link-down-failover enable
             set soft-reconfiguration enable
-            set interface "DC-ISP2"
+            set interface "DC01-ISP2"
             set remote-as 65000
             set connect-timer 1
             set additional-path receive
@@ -396,7 +396,7 @@ config system sdwan
             set zone "SD-WAN DC01"
         next
         edit 0
-            set interface "DC-ISP2"
+            set interface "DC01-ISP2"
             set zone "SD-WAN DC01"
             set cost 10
             set priority 10
@@ -543,7 +543,7 @@ config vpn ipsec phase1-interface
         set dpd-retrycount 2
         set dpd-retryinterval 10
     next                    
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set interface "port3"
         set ike-version 2
         set keylife 28800
@@ -571,8 +571,8 @@ config vpn ipsec phase2-interface
         set keepalive enable
         set keylifeseconds 1800
     next
-    edit "DC-ISP2_p2"
-        set phase1name "DC-ISP2"
+    edit "DC01-ISP2_p2"
+        set phase1name "DC01-ISP2"
         set proposal aes256-sha256 aes256gcm
         set keepalive enable
         set keylifeseconds 1800
@@ -582,7 +582,7 @@ config system interface
     edit "DC01-ISP1"
         set allowaccess ping
     next                    
-    edit "DC-ISP2"
+    edit "DC01-ISP2"
         set allowaccess ping
     next                    
 end
@@ -607,7 +607,7 @@ config router bgp
             set advertisement-interval 1
             set link-down-failover enable
             set soft-reconfiguration enable
-            set interface "DC-ISP2"
+            set interface "DC01-ISP2"
             set remote-as 65000
             set connect-timer 1
             set additional-path receive
@@ -675,7 +675,7 @@ config system sdwan
             set zone "SD-WAN DC01"
         next
         edit 0
-            set interface "DC-ISP2"
+            set interface "DC01-ISP2"
             set zone "SD-WAN DC01"
             set cost 10
             set priority 10
