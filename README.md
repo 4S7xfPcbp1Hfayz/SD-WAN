@@ -702,6 +702,11 @@ SD-WAN validation:
 diagnose sys virtual-wan-link member
 diagnose sys virtual-wan-link service
 diagnose sys virtual-wan-link health-check
+
+diagnose sys sdwan member
+diagnose sys sdwan service
+diagnose sys sdwan health-check
+
 ```
 Routing table:
 ```
