@@ -375,8 +375,7 @@ config system sdwan
         next
     end
     config health-check
-        edit 0
-            set name "SLA-DC1"
+        edit "SLA_DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -389,8 +388,7 @@ config system sdwan
                 next
             end
         next
-        edit 0
-            set name "Google"
+        edit "Google"
             set server "8.8.8.8"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -403,8 +401,7 @@ config system sdwan
                 next
             end
         next
-        edit 0
-            set name "Cloudflare"
+        edit "Cloudflare"
             set server "1.1.1.1"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -426,7 +423,7 @@ config system sdwan
             set src "RFC_1918_ALL"
             set hold-down-time 20
             config sla
-                edit "SLA-DC1"
+                edit "SLA_DC1"
                     set id 1
                 next
             end
@@ -607,8 +604,7 @@ config system sdwan
         next
     end
     config health-check
-        edit 0
-            set name "SLA-DC1"
+        edit "SLA_DC1"
             set server "172.31.127.254"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -621,8 +617,7 @@ config system sdwan
                 next
             end
         next
-        edit 0
-            set name "Google"
+        edit "Google"
             set server "8.8.8.8"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -635,8 +630,7 @@ config system sdwan
                 next
             end
         next
-        edit 0
-            set name "Cloudflare"
+        edit "Cloudflare"
             set server "1.1.1.1"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
@@ -658,7 +652,7 @@ config system sdwan
             set src "RFC_1918_ALL"
             set hold-down-time 20
             config sla
-                edit "SLA-DC1"
+                edit "SLA_DC1"
                     set id 1
                 next
             end
