@@ -457,8 +457,8 @@ config system sdwan
         edit 0
             set name "DC1-Traffic"
             set mode sla
-            set dst "RFC_1918_ALL"
-            set src "RFC_1918_ALL"
+            set dst "RFC_1918_ALL_CUSTOM"
+            set src "RFC_1918_ALL_CUSTOM"
             set hold-down-time 20
             config sla
                 edit "SLA_DC1"
@@ -736,8 +736,8 @@ config system sdwan
         edit 0
             set name "DC1-Traffic"
             set mode sla
-            set dst "RFC_1918_ALL"
-            set src "RFC_1918_ALL"
+            set dst "RFC_1918_ALL_CUSTOM"
+            set src "RFC_1918_ALL_CUSTOM"
             set hold-down-time 20
             config sla
                 edit "SLA_DC1"
