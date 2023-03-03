@@ -15,6 +15,8 @@
 /!\ TODO:
 - SD-WAN Rules for internet
 - Rule for internet with SD-WAN INTERNET zone
+- Add Static Route
+- IPSEC VPN setup local-gw
 
 ### FW-HUB-01
 
