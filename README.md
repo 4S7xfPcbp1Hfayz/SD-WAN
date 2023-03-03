@@ -345,6 +345,11 @@ config firewall address
         set color 21
         set subnet 10.1.30.0 255.255.255.0
     next
+        edit "SRV-AZURE"
+        set color 18
+        set subnet 10.0.0.0 255.255.0.0
+    
+    next
 end
 config firewall addrgrp
     edit "RFC_1918_ALL"
