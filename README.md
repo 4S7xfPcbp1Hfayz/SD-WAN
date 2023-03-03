@@ -476,6 +476,17 @@ config firewall policy
         set schedule "always"
         set service "ALL"
     next
+    edit 0
+        set name "LAN-2-SDWAN-INTERNET"
+        set srcintf "port1"
+        set dstintf "SD-WAN INTERNET"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set nat enable
+    next
 end
 ```
 
@@ -727,6 +738,17 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
+    next
+    edit 0
+        set name "LAN-2-SDWAN-INTERNET"
+        set srcintf "port1"
+        set dstintf "SD-WAN INTERNET"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set nat enable
     next
 end
 ```
