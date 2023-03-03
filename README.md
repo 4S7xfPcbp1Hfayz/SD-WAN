@@ -172,7 +172,11 @@ config firewall address
         edit "SRV-AZURE"
         set color 18
         set subnet 10.0.0.0 255.255.0.0
-    
+    next
+        edit "SSLVPN_TUNNEL_ADDR1"
+        set type iprange
+        set start-ip 10.212.134.10
+        set end-ip 10.212.134.210
     next
 end
 config firewall addrgrp
@@ -180,7 +184,7 @@ config firewall addrgrp
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
     edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config router policy
@@ -361,7 +365,11 @@ config firewall address
         edit "SRV-AZURE"
         set color 18
         set subnet 10.0.0.0 255.255.0.0
-    
+    next
+        edit "SSLVPN_TUNNEL_ADDR1"
+        set type iprange
+        set start-ip 10.212.134.10
+        set end-ip 10.212.134.210
     next
 end
 config firewall addrgrp
@@ -369,7 +377,7 @@ config firewall addrgrp
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
     edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config system sdwan
@@ -640,7 +648,11 @@ config firewall address
         edit "SRV-AZURE"
         set color 18
         set subnet 10.0.0.0 255.255.0.0
-    
+    next
+        edit "SSLVPN_TUNNEL_ADDR1"
+        set type iprange
+        set start-ip 10.212.134.10
+        set end-ip 10.212.134.210
     next
 end
 config firewall addrgrp
@@ -648,7 +660,7 @@ config firewall addrgrp
         set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
     next
     edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168"
+        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config system sdwan
