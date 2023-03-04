@@ -240,7 +240,6 @@ config firewall policy
         set action accept
         set schedule "always"
         set service "ALL"
-        set comments "Allow health checks to the hub FortiGate"
     next        
 end
 ```
