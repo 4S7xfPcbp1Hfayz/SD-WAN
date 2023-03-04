@@ -900,4 +900,6 @@ diag debug reset
 diag debug application ike -1
 diag debug console timestamp enable
 diag debug en
+
+looking for "adding new dynamic"
 ```
