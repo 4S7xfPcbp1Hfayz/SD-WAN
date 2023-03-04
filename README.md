@@ -14,6 +14,7 @@
 
 /!\ TODO:
 - SD-WAN with AZURE
+- Disable SIP-ALG
 
 ### FW-HUB-01
 
