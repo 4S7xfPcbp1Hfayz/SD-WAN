@@ -816,6 +816,8 @@ end
 ### FW-HUB-01
 Routing table:
 ```
+get router info routing-table static
+get router info routing-table connected
 get router info routing-table all
 ```
 VPN establishment:
@@ -839,12 +841,12 @@ diagnose sys sdwan health-check
 ```
 Routing table:
 ```
+get router info routing-table static
+get router info routing-table connected
 get router info routing-table all
-get router info route-map-address
 
 get router info bgp summary
 get router info routing-table bgp
-get router info bgp route-map <route-map-name>
 ```
 VPN establishment:
 ```
