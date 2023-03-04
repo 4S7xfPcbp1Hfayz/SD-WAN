@@ -853,6 +853,15 @@ VPN establishment:
 diagnose vpn ike gateway list
 ```
 
+PING internal server:
+```
+ping 10.1.37.254
+ping 10.1.30.100
+
+ping 10.1.30.254
+ping 10.1.30.10
+```
+
 ## DEBUG
 BGP:
 ```
