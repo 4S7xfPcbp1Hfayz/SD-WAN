@@ -854,6 +854,7 @@ diagnose vpn ike gateway list
 ```
 
 ## DEBUG
+BGP:
 ```
 diag ip router bgp level info
 diag ip router bgp all enable
@@ -862,4 +863,19 @@ diag debug enable
 
 diag debug reset
 diag debug disable
+```
+
+IPSEC:
+```
+diag vpn ike log filter name <phase1-name>
+diag vpn ike log filter name MyVPN
+
+diag debug app ike -1
+diag debug enable
+
+diag vpn ike log-filter clear
+diag debug disable
+
+diag vpn ike restart
+diag vpn ike gateway clear
 ```
