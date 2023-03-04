@@ -893,3 +893,11 @@ IPSEC PSK Extract plaintext:
 ```
 https://[Address]:[port]/api/v2/cmdb/vpn.ipsec/phase1-interface?plain-text-password=1
 ```
+
+ADVPN:
+```
+diag debug reset
+diag debug application ike -1
+diag debug console timestamp enable
+diag debug en
+```
