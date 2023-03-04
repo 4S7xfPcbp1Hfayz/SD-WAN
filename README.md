@@ -849,3 +849,14 @@ VPN establishment:
 ```
 diagnose vpn ike gateway list
 ```
+
+## DEBUG
+```
+diag ip router bgp level info
+diag ip router bgp all enable
+diag ip router bgp show
+diag debug enable
+
+diag debug reset
+diag debug disable
+```
