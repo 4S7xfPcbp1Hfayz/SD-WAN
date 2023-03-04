@@ -879,3 +879,8 @@ diag debug disable
 diag vpn ike restart
 diag vpn ike gateway clear
 ```
+
+IPSEC PSK Extract plaintext:
+```
+https://[Address]:[port]/api/v2/cmdb/vpn.ipsec/phase1-interface?plain-text-password=1
+```
