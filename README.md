@@ -464,7 +464,7 @@ config system sdwan
     end
     config service
         edit 0
-            set name "DC01-Traffic"
+            set name "DC01-TRAFFIC"
             set mode sla
             set dst "RFC_1918_DC01"
             set src "RFC_1918_DC01"
@@ -749,7 +749,7 @@ config system sdwan
     end
     config service
         edit 0
-            set name "DC01-Traffic"
+            set name "DC01-TRAFFIC"
             set mode sla
             set dst "RFC_1918_DC01"
             set src "RFC_1918_DC01"
