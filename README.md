@@ -942,4 +942,7 @@ config system global
     set remoteauthtimeout 60
     set timezone 28
 end
+config system console
+    set output standard
+end
 ```
