@@ -906,3 +906,13 @@ diag debug en
 
 looking for "adding new dynamic"
 ```
+
+## TIPS
+Disabling SIP ALG:
+```
+config system settings
+set sip-expectation disable
+set sip-nat-trace disable
+set default-voip-alg-mode kernel-helper-based
+end
+```
