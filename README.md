@@ -14,7 +14,6 @@
 
 /!\ TODO:
 - SD-WAN with AZURE
-- Disable SIP-ALG
 
 ### FW-HUB-01
 
@@ -928,4 +927,5 @@ config voip profile
         set rtp disable
     end
 end
+execute reboot
 ```
