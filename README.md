@@ -929,3 +929,17 @@ config voip profile
 end
 execute reboot
 ```
+
+Disabling SIP ALG:
+```
+config system global
+    set admin-https-redirect disable
+    set admin-scp enable
+    set admin-sport 11443
+    set admintimeout 60
+    set gui-local-out enable
+    set gui-theme neutrino
+    set remoteauthtimeout 60
+    set timezone 28
+end
+```
