@@ -911,21 +911,21 @@ looking for "adding new dynamic"
 Disabling SIP ALG:
 ```
 config system settings
-set sip-expectation disable
-set sip-nat-trace disable
-set default-voip-alg-mode kernel-helper-based
+    set sip-expectation disable
+    set sip-nat-trace disable
+    set default-voip-alg-mode kernel-helper-based
 end
 
 config system session-helper
-show 
-# find the entry for SIP
-delete XX
+    show 
+    # find the entry for SIP
+    delete XX
 end
 
 config voip profile
-edit default
-config sip
-set rtp disable
-end
+    edit default
+    config sip
+        set rtp disable
+    end
 end
 ```
