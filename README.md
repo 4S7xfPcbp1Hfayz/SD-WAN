@@ -477,7 +477,7 @@ config system sdwan
             set priority-members 1 2
         next
         edit 0
-            set name "Internet-Traffic"
+            set name "INTERNET-TRAFFIC"
             set mode sla
             set dst "all"
             set src "all"
@@ -762,7 +762,7 @@ config system sdwan
             set priority-members 1 2
         next
         edit 0
-            set name "Internet-Traffic"
+            set name "INTERNET-TRAFFIC"
             set mode sla
             set dst "all"
             set src "all"
