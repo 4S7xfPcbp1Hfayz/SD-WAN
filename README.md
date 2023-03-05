@@ -256,6 +256,7 @@ config vpn ipsec phase1-interface
         set peertype any
         set net-device enable
         set mode-cfg enable
+        set localid "FW-SPOKE-01"
         set proposal aes256-sha256 aes256gcm-prfsha384
         set add-route disable
         set dpd on-idle
@@ -539,6 +540,7 @@ config vpn ipsec phase1-interface
         set peertype any
         set net-device enable
         set mode-cfg enable
+        set localid "FW-SPOKE-02"
         set proposal aes256-sha256 aes256gcm-prfsha384
         set add-route disable
         set dpd on-idle
