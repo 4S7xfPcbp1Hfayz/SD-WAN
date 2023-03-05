@@ -906,7 +906,7 @@ diag debug en
 looking for "adding new dynamic"
 ```
 
-## TIPS
+## Tips and Tricks
 Disabling SIP ALG:
 ```
 config system settings
@@ -930,7 +930,7 @@ end
 execute reboot
 ```
 
-Disabling SIP ALG:
+Custom:
 ```
 config system global
     set admin-https-redirect disable
