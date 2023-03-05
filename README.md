@@ -15,7 +15,6 @@
 /!\ TODO:
 - SD-WAN with AZURE
 - Disable SIP-ALG
-- Add localid
 
 ### FW-HUB-01
 
