@@ -879,6 +879,7 @@ get router info routing-table all
 
 get router info bgp summary
 get router info routing-table bgp
+get router info bgp network
 ```
 VPN establishment:
 ```
