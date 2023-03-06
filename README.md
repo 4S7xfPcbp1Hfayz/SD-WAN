@@ -397,6 +397,21 @@ config router static
         set distance 1
         set sdwan-zone "SD-WAN INTERNET"
     next
+    edit 2
+        set dst 10.0.0.0 255.0.0.0
+        set distance 254
+        set blackhole enable
+    next
+    edit 3
+        set dst 172.16.0.0 255.240.0.0
+        set distance 254
+        set blackhole enable
+    next
+    edit 4
+        set dst 192.168.0.0 255.255.0.0
+        set distance 254
+        set blackhole enable
+    next
 end
 config system sdwan
     config members
