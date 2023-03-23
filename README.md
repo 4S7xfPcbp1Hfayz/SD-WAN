@@ -980,7 +980,6 @@ config firewall address
     edit "NET-INTERNET-T1"
         set type iprange
         set comment ''
-        set visibility enable
         set associated-interface ''
         set color 0
         set start-ip 0.0.0.0
@@ -989,7 +988,6 @@ config firewall address
     edit "NET-INTERNET-T2"
         set type iprange
         set comment ''
-        set visibility enable
         set associated-interface ''
         set color 0
         set start-ip 11.0.0.0
@@ -998,7 +996,6 @@ config firewall address
     edit "NET-INTERNET-T3"
         set type iprange
         set comment ''
-        set visibility enable
         set associated-interface ''
         set color 0
         set start-ip 172.32.0.0
@@ -1007,7 +1004,6 @@ config firewall address
     edit "NET-INTERNET-T4"
         set type iprange
         set comment ''
-        set visibility enable
         set associated-interface ''
         set color 0
         set start-ip 192.169.0.0
@@ -1019,7 +1015,6 @@ config firewall addrgrp
         set member "NET-INTERNET-T1" "NET-INTERNET-T2" "NET-INTERNET-T3" "NET-INTERNET-T4"
         set comment ''
         set exclude disable
-        set visibility enable
         set color 0
     next
 end
