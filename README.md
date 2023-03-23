@@ -494,8 +494,8 @@ config system sdwan
         edit 0
             set name "INTERNET-TRAFFIC"
             set mode sla
-            set dst "all"
-            set src "all"
+            set dst "G_INTERNET"
+            set src "RFC_1918_ALL"
             config sla
                 edit "SLA_Cloudflare"
                     set id 1
@@ -535,7 +535,7 @@ config firewall policy
         set dstintf "SD-WAN INTERNET"
         set action accept
         set srcaddr "all"
-        set dstaddr "all"
+        set dstaddr "G_INTERNET"
         set schedule "always"
         set service "ALL"
         set nat enable
@@ -794,8 +794,8 @@ config system sdwan
         edit 0
             set name "INTERNET-TRAFFIC"
             set mode sla
-            set dst "all"
-            set src "all"
+            set dst "G_INTERNET"
+            set src "RFC_1918_ALL"
             config sla
                 edit "SLA_Cloudflare"
                     set id 1
@@ -835,7 +835,7 @@ config firewall policy
         set dstintf "SD-WAN INTERNET"
         set action accept
         set srcaddr "all"
-        set dstaddr "all"
+        set dstaddr "G_INTERNET"
         set schedule "always"
         set service "ALL"
         set nat enable
