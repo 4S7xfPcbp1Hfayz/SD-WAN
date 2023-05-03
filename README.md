@@ -967,6 +967,7 @@ config system global
     set admin-https-redirect disable
     set admin-scp enable
     set admin-sport 11443
+    set admin-port 10443
     set admintimeout 60
     set gui-local-out enable
     set gui-theme neutrino
