@@ -1008,4 +1008,14 @@ config firewall addrgrp
         set member "NET-INTERNET-T1" "NET-INTERNET-T2" "NET-INTERNET-T3" "NET-INTERNET-T4" "NET-INTERNET-T5"
     next
 end
+
+
+config system admin
+    edit "admin"
+        set trusthost1 x.x.x.x 255.255.255.255
+        set trusthost3 10.0.0.0 255.0.0.0
+        set trusthost4 172.16.0.0 255.240.0.0
+        set trusthost5 192.168.0.0 255.255.0.0
+    next
+end
 ```
