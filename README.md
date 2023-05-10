@@ -13,7 +13,7 @@
 | Address Range for VPNs   |  172.31.0.0/17 | /17 for 250 Spokes, /14 for 2000 Spokes |
 
 /!\ TODO:
-- SD-WAN with AZURE
+
 
 ### FW-HUB-01
 
