@@ -1019,3 +1019,13 @@ config system admin
     next
 end
 ```
+
+SD-WAN AZURE
+```
+config system sdwan
+    config zone
+        edit "SD-WAN AZURE"
+        next
+    end 
+end
+```
