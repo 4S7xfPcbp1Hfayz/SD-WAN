@@ -1027,20 +1027,25 @@ config system sdwan
         edit "SD-WAN AZURE"
         next
     end 
+    config members
+        edit 5
+            set interface "TUN-AZURE"
+            set zone "SD-WAN AZURE"
+            set source 10.129.20.254
+        next
+    end
+    config health-check
+        edit "SLA_Azure"
+            set server "10.0.2.4" "10.0.2.6"
+            config sla
+                edit 1
+                    set latency-threshold 200
+                    set jitter-threshold 20
+                    set packetloss-threshold 2
+                next
+            end
+        next
+    end
 end
 
-
-config health-check
-    edit "SLA_Azure"
-        set server "10.0.2.4" "10.0.2.6"
-        set members 6
-        config sla
-            edit 1
-                set latency-threshold 200
-                set jitter-threshold 20
-                set packetloss-threshold 2
-            next
-        end
-    next
-end
 ```
