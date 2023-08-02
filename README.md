@@ -968,10 +968,10 @@ config system global
     set admin-scp enable
     set admin-sport 11443
     set admin-port 10443
-    set admintimeout 60
+    set admintimeout 480
     set gui-local-out enable
     set gui-theme neutrino
-    set remoteauthtimeout 60
+    set remoteauthtimeout 300
     set timezone 28
 end
 config system console
