@@ -450,21 +450,8 @@ config system sdwan
                 next
             end
         next
-        edit "SLA_Google"
-            set server "8.8.8.8"
-            set sla-fail-log-period 10
-            set sla-pass-log-period 10
-            set members 3 4
-            config sla
-                edit 1
-                    set latency-threshold 200
-                    set jitter-threshold 20
-                    set packetloss-threshold 2
-                next
-            end
-        next
-        edit "SLA_Cloudflare"
-            set server "1.1.1.1"
+        edit "SLA_INTERNET"
+            set server "1.1.1.1" "8.8.8.8"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
             set members 3 4
@@ -497,10 +484,7 @@ config system sdwan
             set dst "G_INTERNET"
             set src "RFC_1918_ALL"
             config sla
-                edit "SLA_Cloudflare"
-                    set id 1
-                next
-                edit "SLA_Google"
+                edit "SLA_INTERNET"
                     set id 1
                 next
             end
@@ -750,21 +734,8 @@ config system sdwan
                 next
             end
         next
-        edit "SLA_Google"
-            set server "8.8.8.8"
-            set sla-fail-log-period 10
-            set sla-pass-log-period 10
-            set members 3 4
-            config sla
-                edit 1
-                    set latency-threshold 200
-                    set jitter-threshold 20
-                    set packetloss-threshold 2
-                next
-            end
-        next
-        edit "SLA_Cloudflare"
-            set server "1.1.1.1"
+        edit "SLA_INTERNET"
+            set server "1.1.1.1" "8.8.8.8"
             set sla-fail-log-period 10
             set sla-pass-log-period 10
             set members 3 4
@@ -797,10 +768,7 @@ config system sdwan
             set dst "G_INTERNET"
             set src "RFC_1918_ALL"
             config sla
-                edit "SLA_Cloudflare"
-                    set id 1
-                next
-                edit "SLA_Google"
+                edit "SLA_INTERNET"
                     set id 1
                 next
             end
