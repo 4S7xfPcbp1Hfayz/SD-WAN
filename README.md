@@ -942,9 +942,6 @@ config system global
     set remoteauthtimeout 300
     set timezone 28
 end
-config system console
-    set output standard
-end
 config firewall address
     edit "NET-INTERNET-T1"
         set type iprange
