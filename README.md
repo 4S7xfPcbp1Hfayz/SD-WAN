@@ -152,13 +152,13 @@ config router bgp
     end
 end
 config firewall address
-    edit "RFC_1918_10"
+    edit "RFC1918_10"
         set subnet 10.0.0.0 255.0.0.0
     next
-    edit "RFC_1918_172_16"
+    edit "RFC1918_172_16"
         set subnet 172.16.0.0 255.240.0.0
     next
-    edit "RFC_1918_192_168"
+    edit "RFC1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
     edit "SRV-37"
@@ -180,11 +180,11 @@ config firewall address
     next
 end
 config firewall addrgrp
-    edit "RFC_1918_ALL"
-        set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    edit "RFC1918_GRP"
+        set member "RFC1918_10" "RFC1918_172_16" "RFC1918_192_168"
     next
-    edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
+    edit "RFC1918_DC01"
+        set member "SRV-37" "SRV-30" "RFC1918_172_16" "RFC1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config router policy
@@ -202,8 +202,8 @@ config firewall policy
         set name "ADVPN Spoke to Spoke"
         set srcintf "DC01-ISP1" "DC01-ISP2"
         set dstintf "DC01-ISP1" "DC01-ISP2"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -214,8 +214,8 @@ config firewall policy
         set name "ADVPN Out"
         set srcintf "any"
         set dstintf "DC01-ISP1" "DC01-ISP2"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -224,8 +224,8 @@ config firewall policy
         set name "ADVPN In"
         set srcintf "DC01-ISP1" "DC01-ISP2"
         set dstintf "any"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -346,13 +346,13 @@ config router bgp
     end
 end
 config firewall address
-    edit "RFC_1918_10"
+    edit "RFC1918_10"
         set subnet 10.0.0.0 255.0.0.0
     next
-    edit "RFC_1918_172_16"
+    edit "RFC1918_172_16"
         set subnet 172.16.0.0 255.240.0.0
     next
-    edit "RFC_1918_192_168"
+    edit "RFC1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
     edit "SRV-37"
@@ -374,11 +374,11 @@ config firewall address
     next
 end
 config firewall addrgrp
-    edit "RFC_1918_ALL"
-        set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    edit "RFC1918_GRP"
+        set member "RFC1918_10" "RFC1918_172_16" "RFC1918_192_168"
     next
-    edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
+    edit "RFC1918_DC01"
+        set member "SRV-37" "SRV-30" "RFC1918_172_16" "RFC1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config system sdwan
@@ -468,8 +468,8 @@ config system sdwan
         edit 0
             set name "DC01-TRAFFIC"
             set mode sla
-            set dst "RFC_1918_DC01"
-            set src "RFC_1918_DC01"
+            set dst "RFC1918_DC01"
+            set src "RFC1918_DC01"
             set hold-down-time 20
             config sla
                 edit "SLA_DC01"
@@ -482,7 +482,7 @@ config system sdwan
             set name "INTERNET-TRAFFIC"
             set mode sla
             set dst "G_INTERNET"
-            set src "RFC_1918_ALL"
+            set src "RFC1918_GRP"
             config sla
                 edit "SLA_INTERNET"
                     set id 1
@@ -497,8 +497,8 @@ config firewall policy
         set name "ADVPN Out"
         set srcintf "any"
         set dstintf "SD-WAN DC01"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -507,8 +507,8 @@ config firewall policy
         set name "ADVPN In"
         set srcintf "SD-WAN DC01"
         set dstintf "any"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -630,13 +630,13 @@ config router bgp
     end
 end
 config firewall address
-    edit "RFC_1918_10"
+    edit "RFC1918_10"
         set subnet 10.0.0.0 255.0.0.0
     next
-    edit "RFC_1918_172_16"
+    edit "RFC1918_172_16"
         set subnet 172.16.0.0 255.240.0.0
     next
-    edit "RFC_1918_192_168"
+    edit "RFC1918_192_168"
         set subnet 192.168.0.0 255.255.0.0
     next
     edit "SRV-37"
@@ -658,11 +658,11 @@ config firewall address
     next
 end
 config firewall addrgrp
-    edit "RFC_1918_ALL"
-        set member "RFC_1918_10" "RFC_1918_172_16" "RFC_1918_192_168"
+    edit "RFC1918_GRP"
+        set member "RFC1918_10" "RFC1918_172_16" "RFC1918_192_168"
     next
-    edit "RFC_1918_DC01"
-        set member "SRV-37" "SRV-30" "RFC_1918_172_16" "RFC_1918_192_168" "SSLVPN_TUNNEL_ADDR1"
+    edit "RFC1918_DC01"
+        set member "SRV-37" "SRV-30" "RFC1918_172_16" "RFC1918_192_168" "SSLVPN_TUNNEL_ADDR1"
     next
 end
 config system sdwan
@@ -752,8 +752,8 @@ config system sdwan
         edit 0
             set name "DC01-TRAFFIC"
             set mode sla
-            set dst "RFC_1918_DC01"
-            set src "RFC_1918_DC01"
+            set dst "RFC1918_DC01"
+            set src "RFC1918_DC01"
             set hold-down-time 20
             config sla
                 edit "SLA_DC01"
@@ -766,7 +766,7 @@ config system sdwan
             set name "INTERNET-TRAFFIC"
             set mode sla
             set dst "G_INTERNET"
-            set src "RFC_1918_ALL"
+            set src "RFC1918_GRP"
             config sla
                 edit "SLA_INTERNET"
                     set id 1
@@ -781,8 +781,8 @@ config firewall policy
         set name "ADVPN Out"
         set srcintf "any"
         set dstintf "SD-WAN DC01"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
@@ -791,8 +791,8 @@ config firewall policy
         set name "ADVPN In"
         set srcintf "SD-WAN DC01"
         set dstintf "any"
-        set srcaddr "RFC_1918_DC01"
-        set dstaddr "RFC_1918_DC01"
+        set srcaddr "RFC1918_DC01"
+        set dstaddr "RFC1918_DC01"
         set action accept
         set schedule "always"
         set service "ALL"
