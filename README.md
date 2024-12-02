@@ -1,17 +1,44 @@
-# SD-WAN Configurations with FortiGate Firewalls
+# SD-WAN Demonstration Configurations
 
-This repository contains detailed configurations and examples for deploying SD-WAN solutions using FortiGate firewalls. The configurations are categorized into three main deployment scenarios:
+This repository provides a collection of SD-WAN configuration examples for various deployment scenarios using FortiGate firewalls. These configurations are designed to showcase common SD-WAN architectures and serve as templates for implementation.
 
-1. **Dual Hub**: A dual-hub architecture designed for redundancy and load balancing, ensuring high availability and optimal performance.
-2. **Single Hub**: A centralized architecture with a single hub for simplified management and streamlined traffic routing.
-3. **Standalone SD-WAN**: A standalone SD-WAN setup for independent sites or branches without centralized control.
+## Deployment Scenarios
 
-## Key Features
+1. **Standalone SD-WAN**: Configuration for a branch without a central hub or datacenter. This setup is independent and does not integrate with other files in this repository.
+2. **Single Hub**: Configuration for a single centralized hub/datacenter and its connected branches.
+3. **Dual Hub**: Configuration for a dual-hub setup, offering redundancy and improved availability for connected branches.
 
-- **Dynamic Path Selection**: Optimized traffic routing based on real-time network conditions.
-- **Security Integration**: Leveraging FortiGate's robust security capabilities within SD-WAN setups.
-- **Scalability**: Configurations designed to accommodate various network sizes and topologies.
-- **Ease of Deployment**: Clear documentation and pre-configured templates to accelerate deployment.
+### Configuration Files
+
+#### Single Hub
+- `single_hub_HUB1_SD-WAN_Overlay.txt`: Base configuration for the hub.
+- `single_hub_Branch1_SD-WAN_Overlay.txt`: Base configuration for Branch 1.
+- `single_hub_Branch2_SD-WAN_Overlay.txt`: Base configuration for Branch 2.
+
+#### Dual Hub
+- `dual_hub_HUB1_SD-WAN_Overlay.txt`: Base configuration for Hub 1.
+- `dual_hub_HUB2_SD-WAN_Overlay.txt`: Base configuration for Hub 2.
+- `dual_hub_Branch1_SD-WAN_and_Overlay.txt`: Base configuration for Branch 1.
+- `dual_hub_Branch2_SD-WAN_and_Overlay.txt`: Base configuration for Branch 2.
+
+### Extensions
+Extensions can be added to the base configurations to enable advanced features. Each extension involves configuration changes for both the hub(s) and branches. Be sure to:
+
+- Review the assumptions in the extension's `README.md`.
+- Adjust configurations as necessary (e.g., policy IDs, SD-WAN rule numbers, BGP peer names).
+- Apply the updated configuration files for both the hub(s) and branches.
+
+Note: Changes made to base configurations may impact the integration of extensions. Ensure consistency across related configuration files.
+
+## How to Use
+
+1. Select a base topology: **Standalone**, **Single Hub**, or **Dual Hub**.
+2. Review the assumptions outlined in the `README.md` for the chosen topology.
+3. Update the configuration files to reflect your deployment specifics.
+4. Install the modified base configuration file(s) to your branch(es) and, if applicable, your hub(s).
+5. For single and dual hub setups, integrate additional extensions as needed by reviewing their `README.md`, applying any required changes, and deploying the updated configurations.
+
+For more information on SD-WAN features and advanced deployment techniques, refer to the SD-WAN section of Fortinet's official documentation library.
 
 ## Test Environment
 
