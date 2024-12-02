@@ -1,4 +1,17 @@
-# SD-WAN
+# SD-WAN Configurations with FortiGate Firewalls
+
+This repository contains detailed configurations and examples for deploying SD-WAN solutions using FortiGate firewalls. The configurations are categorized into three main deployment scenarios:
+
+1. **Dual Hub**: A dual-hub architecture designed for redundancy and load balancing, ensuring high availability and optimal performance.
+2. **Single Hub**: A centralized architecture with a single hub for simplified management and streamlined traffic routing.
+3. **Standalone SD-WAN**: A standalone SD-WAN setup for independent sites or branches without centralized control.
+
+## Key Features
+
+- **Dynamic Path Selection**: Optimized traffic routing based on real-time network conditions.
+- **Security Integration**: Leveraging FortiGate's robust security capabilities within SD-WAN setups.
+- **Scalability**: Configurations designed to accommodate various network sizes and topologies.
+- **Ease of Deployment**: Clear documentation and pre-configured templates to accelerate deployment.
 
 ## Test Environment
 
